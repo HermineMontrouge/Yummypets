@@ -7,9 +7,11 @@ class Api {
     }
 
     getApi() {
-        // Instantiation of the javascript object
+        // Instantiation of the javascript object XMLHttpRequest()
         const request = new XMLHttpRequest();
+        // Get the result of the query
         request.onreadystatechange = function () {
+            // check query is done 
             if (this.readyState == XMLHttpRequest.DONE && this.status == 200) {
                 this.responses = JSON.parse(this.responseText);
                 // Creating a div class = "row" for each array "collection" of API 
