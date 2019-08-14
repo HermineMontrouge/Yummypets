@@ -37,47 +37,58 @@ class AddPets {
                 this.newRow.className = "rowOfNewPet";
                 morePets.appendChild(this.newRow);
 
-                // Add 5 boxes to put index, avatar, name, breed and delete button
+                // Add 2 boxes to put a div for index, avatar, name, breed and a div for delete button
+                // First box for index, avatar, name and breed
                 for (let box = 0; box < 1; box++) {
-                    const newBox = document.createElement("div");
-                    newBox.className = "index";
-                    this.newRow.appendChild(newBox);
-                    // Display index that increase from 11
-                    newBox.innerHTML = this.newIndice;
-                }
+                    const firstBox = document.createElement("div");
+                    firstBox.className = "firstBox";
+                    this.newRow.appendChild(firstBox);
+                    // Box for index
+                    for (let box = 0; box < 1; box++) {
+                        const indexBox = document.createElement("div");
+                        indexBox.className = "index";
+                        firstBox.appendChild(indexBox);
+                        // Display index that increase from 11
+                        indexBox.innerHTML = this.newIndice;
+                    }
+                    // Box for avatar
+                    for (let box = 0; box < 1; box++) {
+                        const avatarBox = document.createElement("div");
+                        avatarBox.className = "avatar";
+                        firstBox.appendChild(avatarBox);
+                        // Display avatar
+                        avatarBox.innerHTML = "   ";
 
-                for (let box = 0; box < 1; box++) {
-                    const newBox = document.createElement("div");
-                    newBox.className = "avatar";
-                    this.newRow.appendChild(newBox);
-                    // Display avatar
-                    newBox.innerHTML = "   ";
-                }
-                for (let box = 0; box < 1; box++) {
-                    const newBox = document.createElement("div");
-                    newBox.className = "name";
-                    this.newRow.appendChild(newBox);
-                    // Display name in the row
-                    newBox.innerHTML = this.pseudoValue.value;
-                }
-                for (let box = 0; box < 1; box++) {
-                    const newBox = document.createElement("div");
-                    newBox.className = "Breed";
-                    this.newRow.appendChild(newBox);
-                    // Display race in the row
-                    newBox.innerHTML = this.breedValue.value;
-                }
-                for (let box = 0; box < 1; box++) {
-                    const newBox = document.createElement("div");
-                    newBox.className = "delete";
-                    this.newRow.appendChild(newBox);
-                    newBox.innerHTML = "delete";
+                        // Box for name
+                        for (let box = 0; box < 1; box++) {
+                            const nameBox = document.createElement("div");
+                            nameBox.className = "name";
+                            firstBox.appendChild(nameBox);
+                            // Display name in the rows
+                            nameBox.innerHTML = this.pseudoValue.value;
+                        }
+                        // Box for breed
+                        for (let box = 0; box < 1; box++) {
+                            const breedBox = document.createElement("div");
+                            breedBox.className = "Breed";
+                            firstBox.appendChild(breedBox);
+                            // Display race in the rows
+                            breedBox.innerHTML = this.breedValue.value;
+                        }
+                    }
+                    // second box for delete button
+                    for (let box = 0; box < 1; box++) {
+                        const secondBox = document.createElement("div");
+                        secondBox.className = "delete";
+                        this.newRow.appendChild(secondBox);
+                        secondBox.innerHTML = "Delete";
+                    }
                 }
             }
         })
     }
 }
-
+ 
 // Instantiation
 const addPets = new AddPets();
 addPets.callInputValues();

@@ -91,7 +91,7 @@ class Api {
                     });
                 }
             }
-        };
+        }; 
 
         // recovery of API data thanks to the get method
         request.open("GET", "https://api.yummypets.com/pets/page?limit=10");
