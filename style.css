@@ -8,11 +8,12 @@ body {
     background-color: #EFEEED;
     margin: 10px;
     height: 60px;
-    max-width: 750px;
+    max-width: 850px;
     border-radius: 30px;
     font-family: Arial, Helvetica, sans-serif;
     padding-left: 20px;
     padding-top: 15px;
+    justify-self: right;
 }
 
 .rowOfNewPet {
@@ -23,8 +24,8 @@ form {
     display: flex;
     font-family: Arial, Helvetica, sans-serif;
     border-radius: 15px;
-    justify-content: space-around;
-    max-width: 750px;
+    justify-content: space-between;
+    max-width: 830px;
 }
 
 #pseudo,
@@ -40,4 +41,37 @@ form {
     color: white;
     border-radius: 30px;
     font-size: 0.9em;
+}
+
+.index {
+    display: flex;
+    margin-right: 40px;
+}
+
+.avatar {
+    display: flex;
+    background: url('avatar.png');
+    background-repeat: no-repeat;
+    padding-right: 40px;
+    margin-right: 20px;
+}
+
+.name {
+    display: flex;
+    margin-right: 20px;
+}
+
+.Breed {
+    display: flex;
+    margin-right: 10px;
+    color: grey;
+    font-size: 0.8em;
+    font-style: italic;
+}
+
+.delete {
+    display: flex;
+    font-size: 0.8em;
+    color: #c86a6a;
+    justify-self: right;
 }

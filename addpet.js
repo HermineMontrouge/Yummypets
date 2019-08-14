@@ -1,4 +1,3 @@
-//on veut récupérer les valeurs saisies dans les inputs pseudo et breed et au click de addpet que ca créé une row qui les affiche
 class AddPets {
     constructor() {
         this.newRow;
@@ -7,10 +6,11 @@ class AddPets {
         this.breedValue = document.getElementById("breed");
         this.resultBreed;
         this.resultPseudo;
-        this.pseudoValue;
+        this.newIndice = 10;
+        this.avatar;
     }
 
-    //fonction qui affiche les valeurs des inupts dans une nouvelle row
+    // Function that displays the values of the inupts in a new row
 
     callInputValues() {
 
@@ -28,15 +28,17 @@ class AddPets {
         })
 
         // Listening the button ADD PET
+
         this.btnAddPet.addEventListener("click", (event) => {
             event.preventDefault();
             if (this.pseudoValue.value === "" && this.breedValue.value === "") {
                 alert("Please enter the values in the fields");
             } else {
+                this.newIndice++;
                 this.newRow = document.createElement("div");
                 this.newRow.className = "rowOfNewPet";
                 morePets.appendChild(this.newRow);
-                this.newRow.innerHTML = this.resultPseudo + " " + this.resultBreed;
+                this.newRow.innerHTML = this.newIndice + " " + this.resultPseudo + " " + this.resultBreed;
                 console.log("===")
             }
         })
