@@ -1,9 +1,9 @@
 class Api {
     constructor() {
         this.responses;
-        this.result;
         this.newRow;
         this.index;
+        this.btnDelete = document.querySelector(".delete");
     }
 
     getApi() {
@@ -21,7 +21,7 @@ class Api {
                     this.newRow.className = "row";
                     list.appendChild(this.newRow);
 
-                    // Changing the backgroundColor of the 10 rows
+                    // Changing the backgroundColor and font color of the rows
                     if (i === 0) {
                         this.newRow.style.backgroundColor = "#A8B32C";
                         this.newRow.style.color = "white";
@@ -33,45 +33,62 @@ class Api {
                         this.newRow.style.backgroundColor = "#EFEEED";
                     }
 
-                    // Add 5 boxes to put index, avatar, name, breed and delete button
+                    // Add 2 boxes to put a div for index, avatar, name, breed and a div for delete button
+                    // First box for index, avatar, name and breed
                     for (let box = 0; box < 1; box++) {
-                        const newBox = document.createElement("div");
-                        newBox.className = "index";
-                        this.newRow.appendChild(newBox);
-                        // Display index that increase from 1 to 10
-                        this.index = i + 1;
-                        newBox.innerHTML = this.index + " ";
+                        const firstBox = document.createElement("div");
+                        firstBox.className = "firstBox";
+                        this.newRow.appendChild(firstBox);
+                        // Box for index
+                        for (let box = 0; box < 1; box++) {
+                            const indexBox = document.createElement("div");
+                            indexBox.className = "index";
+                            firstBox.appendChild(indexBox);
+                            // Display index that increase from 1 to 10
+                            this.index = i + 1;
+                            indexBox.innerHTML = this.index;
+                        }
+                        // Box for avatar
+                        for (let box = 0; box < 1; box++) {
+                            const avatarBox = document.createElement("div");
+                            avatarBox.className = "avatar";
+                            firstBox.appendChild(avatarBox);
+                            // Display avatar
+                            avatarBox.innerHTML = "   ";
+                        }
+                        // Box for name
+                        for (let box = 0; box < 1; box++) {
+                            const nameBox = document.createElement("div");
+                            nameBox.className = "name";
+                            firstBox.appendChild(nameBox);
+                            // Display 10 names in the rows
+                            const response = this.responses.collection[i];
+                            nameBox.innerHTML = response.resource.pseudo;
+                        }
+                        // Box for breed
+                        for (let box = 0; box < 1; box++) {
+                            const breedBox = document.createElement("div");
+                            breedBox.className = "Breed";
+                            firstBox.appendChild(breedBox);
+                            // Display 10 races in the rows
+                            const response = this.responses.collection[i];
+                            breedBox.innerHTML = response.resource.breed.lib;
+                        }
                     }
-
+                    // second box for delete button
                     for (let box = 0; box < 1; box++) {
-                        const newBox = document.createElement("div");
-                        newBox.className = "avatar";
-                        this.newRow.appendChild(newBox);
-                        // Display avatar
-                        newBox.innerHTML = "   ";
+                        const secondBox = document.createElement("div");
+                        secondBox.className = "delete";
+                        this.newRow.appendChild(secondBox);
+                        secondBox.innerHTML = "Delete";
                     }
-                    for (let box = 0; box < 1; box++) {
-                        const newBox = document.createElement("div");
-                        newBox.className = "name";
-                        this.newRow.appendChild(newBox);
-                        // Display 10 names in the rows
-                        const response = this.responses.collection[i];
-                        newBox.innerHTML = response.resource.pseudo;
-                    }
-                    for (let box = 0; box < 1; box++) {
-                        const newBox = document.createElement("div");
-                        newBox.className = "Breed";
-                        this.newRow.appendChild(newBox);
-                        // Display 10 races in the rows
-                        const response = this.responses.collection[i];
-                        newBox.innerHTML = response.resource.breed.lib;
-                    }
-                    for (let box = 0; box < 1; box++) {
-                        const newBox = document.createElement("div");
-                        newBox.className = "delete";
-                        this.newRow.appendChild(newBox);
-                        newBox.innerHTML = "delete";
-                    }
+                    // selection of btn delete on the DOM
+                    const btnDelete = document.querySelector(".delete");
+                    // Listening of delete button
+                    btnDelete.addEventListener("click", (event) => {
+                        console.log(btnDelete);
+                        list.splice(1, 0);
+                    });
                 }
             }
         };

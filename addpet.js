@@ -19,12 +19,10 @@ class AddPets {
         this.pseudoValue.addEventListener("input", (event) => {
             this.resultPseudo = this.pseudoValue.value;
             event.preventDefault();
-            console.log(this.resultPseudo);
         })
         this.breedValue.addEventListener("input", (event) => {
             this.resultBreed = this.breedValue.value;
             event.preventDefault();
-            console.log(this.resultBreed);
         })
 
         // Listening the button ADD PET
@@ -38,8 +36,43 @@ class AddPets {
                 this.newRow = document.createElement("div");
                 this.newRow.className = "rowOfNewPet";
                 morePets.appendChild(this.newRow);
-                this.newRow.innerHTML = this.newIndice + " " + this.resultPseudo + " " + this.resultBreed;
-                console.log("===")
+
+                // Add 5 boxes to put index, avatar, name, breed and delete button
+                for (let box = 0; box < 1; box++) {
+                    const newBox = document.createElement("div");
+                    newBox.className = "index";
+                    this.newRow.appendChild(newBox);
+                    // Display index that increase from 11
+                    newBox.innerHTML = this.newIndice;
+                }
+
+                for (let box = 0; box < 1; box++) {
+                    const newBox = document.createElement("div");
+                    newBox.className = "avatar";
+                    this.newRow.appendChild(newBox);
+                    // Display avatar
+                    newBox.innerHTML = "   ";
+                }
+                for (let box = 0; box < 1; box++) {
+                    const newBox = document.createElement("div");
+                    newBox.className = "name";
+                    this.newRow.appendChild(newBox);
+                    // Display name in the row
+                    newBox.innerHTML = this.pseudoValue.value;
+                }
+                for (let box = 0; box < 1; box++) {
+                    const newBox = document.createElement("div");
+                    newBox.className = "Breed";
+                    this.newRow.appendChild(newBox);
+                    // Display race in the row
+                    newBox.innerHTML = this.breedValue.value;
+                }
+                for (let box = 0; box < 1; box++) {
+                    const newBox = document.createElement("div");
+                    newBox.className = "delete";
+                    this.newRow.appendChild(newBox);
+                    newBox.innerHTML = "delete";
+                }
             }
         })
     }
